@@ -37,7 +37,7 @@ src_install()
 	doins src/xinitrc*
 
 	insinto /etc/profile.d/
-	insopts -Dm755
+	insopts -Dm644
 	doins src/zzz-${PN}-profile.sh
 
 	# Install themes
