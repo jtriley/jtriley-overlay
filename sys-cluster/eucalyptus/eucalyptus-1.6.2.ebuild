@@ -1,6 +1,7 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+EAPI=2
 
 DESCRIPTION="Eucalyptus is an open source software framework for cloud computing that implements what is commonly referred to as Infrastructure as a Service (IaaS)."
 HOMEPAGE="http://open.eucalyptus.com"
