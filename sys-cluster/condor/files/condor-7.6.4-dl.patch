@@ -1,0 +1,22 @@
+--- condor-7.6.4-orig/externals/bundles/blahp/1.16.1/classads.m4	2011-12-19 00:18:26.000000000 -0500
++++ condor-7.6.4/externals/bundles/blahp/1.16.1/classads.m4	2011-12-18 23:52:17.000000000 -0500
+@@ -16,7 +16,7 @@
+     AC_MSG_CHECKING([for CLASSAD installation])
+ 
+     CLASSAD_CFLAGS=""
+-    CLASSAD_LIBS="-lclassad -lpcre"
++    CLASSAD_LIBS="-lclassad -lpcre -ldl"
+     CLASSAD_DL_LIBS="-lclassad_dl"
+     if test -n "$with_classads_prefix" -a "$with_classads_prefix" != "/usr" ; then
+             AC_MSG_RESULT([prefix: $with_classads_prefix])
+--- condor-7.6.4-orig/externals/bundles/cream/1.12.1_14/classads.m4	2011-12-19 00:15:33.000000000 -0500
++++ condor-7.6.4/externals/bundles/cream/1.12.1_14/classads.m4	2011-12-19 00:20:12.000000000 -0500
+@@ -16,7 +16,7 @@
+     AC_MSG_CHECKING([for CLASSAD installation])
+ 
+     CLASSAD_CFLAGS=""
+-    CLASSAD_LIBS="-lclassad -lpcre"
++    CLASSAD_LIBS="-lclassad -lpcre -ldl"
+     CLASSAD_DL_LIBS="-lclassad_dl"
+     if test -n "$with_classads_prefix" -a "$with_classads_prefix" != "/usr" ; then
+             AC_MSG_RESULT([prefix: $with_classads_prefix])
