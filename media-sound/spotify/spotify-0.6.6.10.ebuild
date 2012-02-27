@@ -42,5 +42,23 @@ src_unpack() {
 }
 
 src_install() {
+	declare SPOTIFY_HOME=/opt/spotify
+	dodir ${SPOTIFY_HOME}
+	insinto ${SPOTIFY_HOME}
+	doins "${WORKDIR}"/usr/bin/"${PN}"
+	rm "${WORKDIR}"/usr/bin/"${PN}"
 	mv "${WORKDIR}"/usr "${D}" || die "Install failed"
+
+	# Create /usr/bin/spotify
+	dodir /usr/bin/
+	cat <<-EOF >"${D}"/usr/bin/${PN}
+	#!/bin/sh
+	exec $SPOTIFY_HOME/spotify "\$@"
+	EOF
+	fperms 0755 /usr/bin/${PN}
+	fperms 0755 $SPOTIFY_HOME/${PN}
+
+	# revdep-rebuild entry
+	insinto /etc/revdep-rebuild
+	doins "${FILESDIR}"/10${PN} || die
 }
