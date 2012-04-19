@@ -17,7 +17,7 @@ MY_P="${MY_PN}-${PV}"
 DESCRIPTION="StarCluster is a utility for creating and managing general purpose computing clusters hosted on Amazon's Elastic Compute Cloud (EC2)."
 HOMEPAGE="http://web.mit.edu/star/cluster"
 SRC_URI="http://pypi.python.org/packages/source/S/${MY_PN}/${MY_P}.tar.gz"
-LICENSE="LGPL-2.1"
+LICENSE="LGPL-3"
 KEYWORDS="~amd64"
 SLOT="0"
 
