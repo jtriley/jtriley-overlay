@@ -1,6 +1,6 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: dev-python/starcluster-0.91.ebuild 2010/10/13 quantumsummers
+# $Header: dev-python/starcluster-0.93.3.ebuild 2011/04/19 jtriley
 
 EAPI="4"
 
