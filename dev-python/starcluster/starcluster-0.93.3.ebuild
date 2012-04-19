@@ -53,7 +53,7 @@ src_compile() {
 
 src_install() {
 	distutils_src_install --install-scripts="/usr/bin"
-	dobashcompletion completion/starcluster-completion.sh starcluster
+	dobashcompletion completion/starcluster-completion.sh ${PN}
 	if use doc; then
 		dohtml -A txt -r docs/sphinx/_build/html/*
 	fi
