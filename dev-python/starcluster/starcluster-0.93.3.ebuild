@@ -7,6 +7,7 @@ EAPI="4"
 PYTHON_DEPEND="2:2.5"
 SUPPORT_PYTHON_ABIS="1"
 RESTRICT_PYTHON_ABIS="3.*"
+DISTUTILS_SRC_TEST="nosetests"
 
 inherit distutils bash-completion
 
@@ -31,9 +32,8 @@ RDEPEND=">=dev-python/ssh-1.7.13
 
 DEPEND="${RDEPEND}
 	doc? ( dev-python/sphinx )
+	test? ( dev-python/nose )
 	dev-python/setuptools"
-
-RESTRICT="test"
 
 S="${WORKDIR}/${MY_P}"
 
