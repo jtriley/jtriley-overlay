@@ -16,10 +16,10 @@ MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="StarCluster is a utility for creating and managing general purpose computing clusters hosted on Amazon's Elastic Compute Cloud (EC2)."
 HOMEPAGE="http://web.mit.edu/star/cluster"
-KEYWORDS="~amd64"
 EGIT_REPO_URI="http://github.com/jtriley/${MY_PN}.git"
 EGIT_BRANCH="develop"
 LICENSE="LGPL-3"
+KEYWORDS=""
 SLOT="0"
 
 IUSE="doc bash-completion"
