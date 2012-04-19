@@ -10,9 +10,6 @@ RESTRICT_PYTHON_ABIS="3.*"
 
 inherit distutils bash-completion
 
-# Uncomment when new release is ready
-# inherit bash-completion distutils
-
 MY_PN="StarCluster"
 MY_P="${MY_PN}-${PV}"
 
@@ -46,7 +43,6 @@ DOCS="docs/sphinx/*"
 
 src_compile() {
 	distutils_src_compile
-
 	if use doc; then
 		einfo "Generation of documentation"
 		pushd docs/sphinx > /dev/null
@@ -57,9 +53,7 @@ src_compile() {
 
 src_install() {
 	distutils_src_install --install-scripts="/usr/bin"
-
 	dobashcompletion completion/starcluster-completion.sh starcluster
-
 	if use doc; then
 		dohtml -A txt -r docs/sphinx/_build/html/*
 	fi
