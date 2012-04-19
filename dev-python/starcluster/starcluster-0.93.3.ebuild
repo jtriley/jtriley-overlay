@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: dev-python/starcluster-0.91.ebuild 2010/10/13 quantumsummers
 
-EAPI="3"
+EAPI="4"
 
 PYTHON_DEPEND="2:2.5"
 SUPPORT_PYTHON_ABIS="1"
