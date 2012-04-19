@@ -9,7 +9,7 @@ SUPPORT_PYTHON_ABIS="1"
 RESTRICT_PYTHON_ABIS="3.*"
 DISTUTILS_SRC_TEST="nosetests"
 
-inherit distutils bash-completion git
+inherit distutils bash-completion git-2
 
 MY_PN="StarCluster"
 MY_P="${MY_PN}-${PV}"
@@ -18,6 +18,8 @@ DESCRIPTION="StarCluster is a utility for creating and managing general purpose 
 HOMEPAGE="http://web.mit.edu/star/cluster"
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64"
+EGIT_REPO_URI="http://github.com/jtriley/${MY_PN}.git"
+EGIT_BRANCH="develop"
 SLOT="0"
 
 IUSE="doc bash-completion"
@@ -39,8 +41,6 @@ S="${WORKDIR}/${MY_P}"
 PYTHON_MODNAME="${PN}"
 
 DOCS="docs/sphinx/*"
-
-EGIT_REPO_URI="http://github.com/jtriley/${MY_PN}.git"
 
 src_compile() {
 	distutils_src_compile
