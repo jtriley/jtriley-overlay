@@ -15,8 +15,8 @@ MY_PN="StarCluster"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="StarCluster is a utility for creating and managing general purpose computing clusters hosted on Amazon's Elastic Compute Cloud (EC2)."
-HOMEPAGE="http://web.mit.edu/starcluster"
-SRC_URI="http://pypi.python.org/packages/source/S/StarCluster/${MY_P}.tar.gz"
+HOMEPAGE="http://web.mit.edu/star/cluster"
+SRC_URI="http://pypi.python.org/packages/source/S/${MY_PN}/${MY_P}.tar.gz"
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64"
 SLOT="0"
@@ -37,7 +37,7 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_P}"
 
-PYTHON_MODNAME="starcluster"
+PYTHON_MODNAME="${PN}"
 
 DOCS="docs/sphinx/*"
 
@@ -53,7 +53,7 @@ src_compile() {
 
 src_install() {
 	distutils_src_install --install-scripts="/usr/bin"
-	dobashcompletion completion/starcluster-completion.sh ${PN}
+	dobashcompletion completion/${PN}-completion.sh ${PN}
 	if use doc; then
 		dohtml -A txt -r docs/sphinx/_build/html/*
 	fi
