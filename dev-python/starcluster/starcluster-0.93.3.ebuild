@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: dev-python/starcluster-0.93.3.ebuild 2011/04/19 jtriley
+# $Header: dev-python/starcluster-0.93.3.ebuild 2012/04/18 jtriley
 
 EAPI="4"
 
