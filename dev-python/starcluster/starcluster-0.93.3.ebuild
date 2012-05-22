@@ -18,7 +18,7 @@ DESCRIPTION="StarCluster is a utility for creating and managing general purpose 
 HOMEPAGE="http://web.mit.edu/star/cluster"
 SRC_URI="http://pypi.python.org/packages/source/S/${MY_PN}/${MY_P}.tar.gz"
 LICENSE="LGPL-3"
-KEYWORDS="~amd64"
+KEYWORDS="~x86 ~amd64"
 SLOT="0"
 
 IUSE="doc bash-completion"
