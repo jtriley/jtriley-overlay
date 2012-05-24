@@ -1,8 +1,11 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+EAPI="4"
 
-#EAPI=0
+PYTHON_DEPEND="2"
+SUPPORT_PYTHON_ABIS="1"
+RESTRICT_PYTHON_ABIS="3.*"
 
 inherit distutils
 
@@ -13,13 +16,13 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~x86 ~amd64 ~ppc64"
 IUSE=""
-DEPEND=">=dev-python/boto-1.9d 
+DEPEND=">=dev-python/boto-1.9d
  >=dev-lang/python-2.5
  >=dev-python/m2crypto-0.19.1"
 
 RDEPEND="${DEPEND}"
 
-DOCS="${S}/COPYING 
+DOCS="${S}/COPYING
   ${S}/CHANGELOG
   ${S}/README
   ${S}/INSTALL"
@@ -36,7 +39,7 @@ src_install() {
 		newbin ${tool} ${tool}
 	done
 
-	# Install the manpages 
+	# Install the manpages
 	if [[ -d ${S}/man ]]; then
 		doman ${S}/man/* || die "doman"
 	fi
@@ -58,7 +61,7 @@ pkg_postinst(){
 	\"eucarc\" file that is included as part of the credentials zip-file that
 	you downloaded from the Eucalyptus Web interface should be enough to set up
 	all of the above variables correctly."
-	einfo ""	
+	einfo ""
 	einfo "For more information please refer to the:"
 	einfo "   * --help option of the individual commands,"
 	einfo "   * check the man pages for each command,"
