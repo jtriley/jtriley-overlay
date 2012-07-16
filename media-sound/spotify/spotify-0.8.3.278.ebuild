@@ -49,7 +49,7 @@ RDEPEND="${DEPEND}
 		sys-apps/dbus
 		sys-apps/util-linux
 		dev-libs/expat
-		dev-libs/nspr
+		>=dev-libs/nspr-4.9
 		gnome-base/gconf:2
 		x11-libs/gtk+:2
 		dev-libs/nss
@@ -91,10 +91,17 @@ src_install() {
 	insinto ${SPOTIFY_HOME}
 	doins -r usr/share/spotify/*
 	fperms +x ${SPOTIFY_HOME}/spotify
-	dodir /usr/bin
-	dosym ../share/spotify/spotify /usr/bin/spotify
 	dodir /usr/share
 	dosym ${SPOTIFY_HOME} /usr/share/spotify
+
+	dodir /usr/bin
+	cat <<-EOF >"${D}"/usr/bin/spotify
+		#! /bin/sh
+		LD_PRELOAD="\${LD_PRELOAD} /usr/share/spotify/libcef.so"
+		export LD_PRELOAD
+		exec ${SPOTIFY_HOME}/spotify "\$@"
+	EOF
+	fperms +x /usr/bin/spotify
 
 	# revdep-rebuild produces a false positive because of symbol versioning
 	dodir /etc/revdep-rebuild
