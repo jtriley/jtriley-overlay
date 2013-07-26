@@ -1,0 +1,12 @@
+diff --git a/src/decoder/ffmpeg_decoder_plugin.c b/src/decoder/ffmpeg_decoder_plugin.c
+index fcf7507..776e5ac 100644
+--- a/src/decoder/ffmpeg_decoder_plugin.c
++++ b/src/decoder/ffmpeg_decoder_plugin.c
+@@ -726,6 +726,7 @@ static const char *const ffmpeg_mime_types[] = {
+ 	"application/x-ogg",
+ 	"application/x-shockwave-flash",
+ 	"application/x-shorten",
++	"application/flv",
+ 	"audio/8svx",
+ 	"audio/16sv",
+ 	"audio/aac",
