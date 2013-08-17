@@ -1,13 +1,13 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: Exp $
-EAPI="4"
+EAPI="5"
 
-PYTHON_DEPEND="2"
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
 SUPPORT_PYTHON_ABIS="1"
 RESTRICT_PYTHON_ABIS="3.*"
 
-inherit distutils fdo-mime versionator
+inherit distutils-r1 fdo-mime versionator
 
 PHATCH_VERSION=$(get_version_component_range 1-3)
 
@@ -23,10 +23,14 @@ IUSE=""
 
 DEPEND="dev-lang/python
 	dev-python/wxpython
-	dev-python/imaging
+	virtual/python-imaging
 	sys-apps/findutils"
 
 RDEPEND="${DEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/${P}-fix-pil-imports.patch"
+)
 
 #src_compile(){
 #	cd "${WORKDIR}/${PN}-${PHATCH_VERSION}"
