@@ -1,0 +1,11 @@
+diff --git a/start_fontypython b/start_fontypython
+index 1de3888..a9bdc11 100755
+--- a/start_fontypython
++++ b/start_fontypython
+@@ -21,4 +21,6 @@ import os
+ ## Just clear up some sad facts:
+ if os.name != "posix": sys.exit(_("Sorry, only Gnu/Linux is supported at the moment."))
+ ## start the show!
++import wxversion
++wxversion.select("2.8")
+ import fontypythonmodules.start
