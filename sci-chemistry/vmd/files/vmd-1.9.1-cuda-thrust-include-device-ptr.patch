@@ -1,0 +1,24 @@
+diff --git a/vmd-1.9.1/src/CUDAMarchingCubes.cu b/vmd-1.9.1/src/CUDAMarchingCubes.cu
+index 5bfe7bf..36faaf0 100755
+--- a/vmd-1.9.1/src/CUDAMarchingCubes.cu
++++ b/vmd-1.9.1/src/CUDAMarchingCubes.cu
+@@ -45,6 +45,7 @@
+ #include "CUDAMarchingCubes.h"
+ #include <thrust/scan.h>
+ #include <thrust/functional.h>
++#include <thrust/device_ptr.h>
+ 
+ // The number of threads to use for triangle generation 
+ // (limited by shared memory size)
+diff --git a/vmd-1.9.1/src/CUDAQuickSurf.cu b/vmd-1.9.1/src/CUDAQuickSurf.cu
+index a21ebde..7d94a15 100755
+--- a/vmd-1.9.1/src/CUDAQuickSurf.cu
++++ b/vmd-1.9.1/src/CUDAQuickSurf.cu
+@@ -638,6 +638,7 @@ static void * cudadensitythread(void *voidparms) {
+ // and only considering bins of atoms that fall within that radius.
+ //
+ #include <thrust/sort.h> // need thrust sorting primitives
++#include <thrust/device_ptr.h> // need thrust sorting primitives
+ 
+ #define GRID_CELL_EMPTY 0xffffffff
+ 
