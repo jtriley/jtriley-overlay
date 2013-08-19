@@ -25,9 +25,9 @@ start_pre() {
 			/sbin/modprobe uinput > /dev/null 2> /dev/null
 		fi
 	fi
-
-	local SWITCHKEY=""
-	[ "${CLIENT_SWITCH_L1}" = "yes" ] && command_args="--switch"
+	if [ "${CLIENT_SWITCH_MR}" = "yes" ]; then
+		command_args="-s"
+	fi
 }
 
 stop() {
@@ -36,6 +36,9 @@ stop() {
 	if [ $BACKLIGHT_OFF = "yes" ]; then
 		KILLOPT="-K"
 	fi
-	start-stop-daemon -R 5 --exec ${command} -- ${KILLOPT}
+	local PID=$(cat $pidfile)
+	while [ -e "/proc/$PID" ]; do
+		start-stop-daemon --exec ${command} -- ${KILLOPT}
+	done
 	eend $?
 }

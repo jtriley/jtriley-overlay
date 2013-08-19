@@ -128,7 +128,7 @@ src_install() {
 		doins contrib/testbindings.pl
 	fi
 
-	newconfd "${FILESDIR}/${PN}-1.2.7.confd" ${PN}
+	newconfd "${FILESDIR}/${PN}-1.9.5.3.confd" ${PN}
 	newinitd "${FILESDIR}/${PN}-1.9.5.3.initd" ${PN}
 	dobin "${FILESDIR}/g15daemon-hotplug"
 	insinto /lib/udev/rules.d
