@@ -12,7 +12,7 @@
 # 4- pkgconfig is an automagic dep (I'm fixing it with upstream);
 
 EAPI=3
-inherit git autotools
+inherit git-2 autotools
 
 EGIT_REPO_URI="http://github.com/zeromq/zeromq2.git"
 

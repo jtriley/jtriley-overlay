@@ -8,7 +8,7 @@ SUPPORT_PYTHON_ABIS="1"
 RESTRICT_PYTHON_ABIS="3.*"
 DISTUTILS_SRC_TEST="setup.py"
 
-inherit distutils flag-o-matic git
+inherit distutils flag-o-matic git-2
 
 DESCRIPTION="Python bindings for zeromq."
 HOMEPAGE="http://www.zeromq.org/bindings:python"
