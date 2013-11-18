@@ -36,8 +36,6 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/${MY_P}
 
-PATCHES=( "${FILESDIR}"/${P}-requires.patch )
-
 python_compile_all() {
 	use doc && emake -C docs/sphinx html
 	mkdocs() {
