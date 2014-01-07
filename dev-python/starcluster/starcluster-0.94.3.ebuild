@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="doc bash-completion epydoc"
 
-RDEPEND=">=dev-python/paramiko-1.10.1[${PYTHON_USEDEP}]
+RDEPEND=">=dev-python/paramiko-1.11.0[${PYTHON_USEDEP}]
 	>=dev-python/boto-2.9.8[${PYTHON_USEDEP}]
 	>=dev-python/jinja-2.6[${PYTHON_USEDEP}]
 	>=dev-python/decorator-3.4.0[${PYTHON_USEDEP}]
