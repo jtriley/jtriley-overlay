@@ -1,10 +1,11 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: dev-python/starcluster-0.9999.ebuild 2012/04/19 jtriley
+# $Header: dev-python/starcluster-0.9999.ebuild 2014/03/20 jtriley
+
 EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
-DISTUTILS_SRC_TEST="nosetests"
+DISTUTILS_SRC_TEST="py.test"
 
 inherit distutils-r1 bash-completion-r1 git-2
 
@@ -15,20 +16,22 @@ DESCRIPTION="StarCluster is a Cluster Computing Toolkit for the Cloud (EC2)."
 HOMEPAGE="http://star.mit.edu/cluster"
 EGIT_REPO_URI="http://github.com/jtriley/${MY_PN}.git"
 EGIT_BRANCH="develop"
+
 LICENSE="LGPL-3"
 KEYWORDS=""
 SLOT="0"
-
 IUSE="doc bash-completion epydoc"
 
-RDEPEND=">=dev-python/paramiko-1.10.1[${PYTHON_USEDEP}]
-	>=dev-python/boto-2.9.8[${PYTHON_USEDEP}]
+RDEPEND=">=dev-python/paramiko-1.12.1[${PYTHON_USEDEP}]
+	>=dev-python/boto-2.23.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja-2.7[${PYTHON_USEDEP}]
 	>=dev-python/decorator-3.4.0[${PYTHON_USEDEP}]
-	>=dev-python/pyasn1-0.1.7[${PYTHON_USEDEP}]
 	>=dev-python/workerpool-0.9.2[${PYTHON_USEDEP}]
-	>=dev-python/optcomplete-1.2[${PYTHON_USEDEP}]
-	>=dev-python/iptools-0.6.1[${PYTHON_USEDEP}]"
+	>=dev-python/iptools-0.6.1[${PYTHON_USEDEP}]
+	>=dev-python/iso8601-0.1.8[${PYTHON_USEDEP}]
+	>=dev-python/pycrypto-2.5[${PYTHON_USEDEP}]
+	>=dev-python/scp-0.7.1[${PYTHON_USEDEP}]
+	>=dev-python/optcomplete-1.2[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}]
 	dev-python/epydoc[${PYTHON_USEDEP}]
@@ -50,10 +53,11 @@ python_compile_all() {
 	}
 	use epydoc && mkdocs
 }
-python_install() {
-	dobashcomp "${S}"/completion/${PN}-completion.sh ${PN}
 
-	use doc && dohtml -r docs/sphinx/_build/html/
+python_install_all() {
+	distutils-r1_python_install_all
+	use bash-completion && newbashcomp completion/${PN}-completion.sh ${PN}
+	use doc && local HTML_DOCS=( docs/sphinx/_build/html/. )
 	if use epydoc; then
 		docompress -x usr/share/doc/${PF}/apidocs/api-objects.txt
 		insinto usr/share/doc/${PF}/
@@ -62,5 +66,5 @@ python_install() {
 }
 
 python_test() {
-	nosetests || die -v ${PN}/tests || die
+	py.test || die -v ${PN}/tests || die
 }
