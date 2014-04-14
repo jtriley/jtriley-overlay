@@ -1,0 +1,4 @@
+#!/bin/bash
+export ETSDL_SDL_LIB="/usr/lib32/libSDL.so"
+export SDL_AUDIODRIVER="alsa"
+LD_PRELOAD="/usr/lib32/et-sdl-sound.so" $*
