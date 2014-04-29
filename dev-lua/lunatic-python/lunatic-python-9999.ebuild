@@ -15,7 +15,7 @@ SRC_URI=""
 
 LICENSE="LGPL"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="debug"
 
 RDEPEND=">=dev-lang/lua-5.1[deprecated]"
