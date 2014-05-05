@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: dev-python/starcluster-0.95.3.ebuild 2014/03/20 jtriley
+# $Header: dev-python/starcluster-0.95.5.ebuild 2014/03/20 jtriley
 
 EAPI=5
 
@@ -9,8 +9,8 @@ DISTUTILS_SRC_TEST="py.test"
 
 inherit distutils-r1 bash-completion-r1
 
-MY_PN=StarCluster
-MY_P=${MY_PN}-${PV}
+MY_PN="StarCluster"
+MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="StarCluster is a Cluster Computing Toolkit for the Cloud (EC2)."
 HOMEPAGE="http://star.mit.edu/cluster"
@@ -38,7 +38,7 @@ DEPEND="${RDEPEND}
 	dev-python/matplotlib[${PYTHON_USEDEP}] )
 	dev-python/setuptools[${PYTHON_USEDEP}]"
 
-S=${WORKDIR}/${MY_P}
+S="${WORKDIR}/${MY_P}"
 
 python_compile_all() {
 	use doc && emake -C docs/sphinx html

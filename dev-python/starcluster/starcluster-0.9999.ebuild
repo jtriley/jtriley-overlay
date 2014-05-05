@@ -34,6 +34,7 @@ RDEPEND=">=dev-python/paramiko-1.12.1[${PYTHON_USEDEP}]
 	>=dev-python/optcomplete-1.2[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}]
+	dev-python/sphinxcontrib-issuetracker[${PYTHON_USEDEP}]
 	dev-python/epydoc[${PYTHON_USEDEP}]
 	dev-python/matplotlib[${PYTHON_USEDEP}] )
 	dev-python/setuptools[${PYTHON_USEDEP}]"
