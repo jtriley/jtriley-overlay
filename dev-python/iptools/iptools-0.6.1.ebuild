@@ -4,13 +4,13 @@
 
 EAPI="5"
 PYTHON_COMPAT=( python{2_5,2_6,2_7,3_2,3_3} )
-DISTUTILS_SRC_TEST="nosetests"
 
 inherit distutils-r1
 
 DESCRIPTION="Python utilites for manipulating IPv4 and IPv6 addresses"
 HOMEPAGE="https://github.com/bd808/python-iptools http://pypi.python.org/pypi/iptools"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+DEPEND="test? ( dev-python/nose[${PYTHON_USEDEP}]"
 
 LICENSE="BSD"
 SLOT="0"
@@ -21,7 +21,7 @@ DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
 
 python_test() {
-	nosetests || die -v tests || die
+	nosetests || die "Tests fail with ${EPYTHON}"
 }
 
 python_install_all() {

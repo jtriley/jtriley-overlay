@@ -5,7 +5,6 @@
 EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
-DISTUTILS_SRC_TEST="py.test"
 
 inherit distutils-r1 bash-completion-r1
 
@@ -19,7 +18,7 @@ SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 LICENSE="LGPL-3"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE="doc bash-completion epydoc"
+IUSE="doc bash-completion epydoc test"
 
 RDEPEND=">=dev-python/paramiko-1.12.1[${PYTHON_USEDEP}]
 	>=dev-python/boto-2.23.0[${PYTHON_USEDEP}]
@@ -32,6 +31,7 @@ RDEPEND=">=dev-python/paramiko-1.12.1[${PYTHON_USEDEP}]
 	>=dev-python/scp-0.7.1[${PYTHON_USEDEP}]
 	>=dev-python/optcomplete-1.2[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
+    test? ( dev-python/pytest[${PYTHON_USEDEP}] )
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}]
 	dev-python/sphinxcontrib-issuetracker[${PYTHON_USEDEP}]
 	dev-python/epydoc[${PYTHON_USEDEP}]
