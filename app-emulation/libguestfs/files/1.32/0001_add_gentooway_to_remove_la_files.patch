@@ -1,0 +1,16 @@
+diff --git a/configure.ac b/configure.ac
+index b793dbe..8d2398d 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -126,8 +126,9 @@ m4_include([m4/guestfs_bash_completion.m4])
+ 
+ dnl Replace libtool with a wrapper that clobbers dependency_libs in *.la files
+ dnl http://lists.fedoraproject.org/pipermail/devel/2010-November/146343.html
+-LIBTOOL='bash $(top_srcdir)/libtool-kill-dependency_libs.sh $(top_builddir)/libtool'
+-AC_SUBST([LIBTOOL])
++dnl LIBTOOL='bash $(top_srcdir)/libtool-kill-dependency_libs.sh $(top_builddir)/libtool'
++dnl AC_SUBST([LIBTOOL])
++LT_INIT
+ 
+ dnl Work around autoconf's lack of expanded variables.
+ eval my_sysconfdir="\"[$]sysconfdir\""
