@@ -10,7 +10,7 @@ inherit python eutils fdo-mime
 
 DESCRIPTION="Keyboard Status Monitor"
 HOMEPAGE="https://code.google.com/p/key-mon/"
-SRC_URI="https://${PN}.googlecode.com/files/${P}.tar.gz"
+SRC_URI="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
